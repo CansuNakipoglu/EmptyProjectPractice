@@ -1,18 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); // buildimizi konfigure etmemiz için gerekli olan Webapplicationbuilder nesnesini döndüren metot
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(); // Controller ve viewleri ekleyen metot.
 
-var app = builder.Build();
+var app = builder.Build(); // Konfigure ettiðimiz webapplicationbuilder'ý build edip webapplication nesnesi döndüren metot
 
-app.UseStaticFiles();
+app.UseStaticFiles(); // Statik dosya tanýmlamamýzý saðlayan metot, default olarak wwroot klasorünü alýyor, istenilirse deðiþtirme þansý var.
 
-app.UseRouting();
+app.UseRouting(); // Uygulamamýzýn routingini configure ettiðimiz metot default olarak Controller/action'u baz alýyor
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(name: "default",pattern: "{controller=Home}/{action=Index}/{id?}"); // uygulamanýn baþladýðýnda ki default sayfasýný ayarlamamýzý saðlayan metot
 
-app.Run();
+app.Run(); // Tüm middlewarelarýmýz tamamlandýktan sonra uygulamamýzý run eden metot.
 
 /* 
 
